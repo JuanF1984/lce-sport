@@ -7,6 +7,7 @@
 @font-face {
     font-family: 'Akashi';
     src: url('../fonts/Akashi.ttf') format('truetype');
+    src: url ('https://github.com/JuanF1984/lce-sport/blob/main/fonts/akashi.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
