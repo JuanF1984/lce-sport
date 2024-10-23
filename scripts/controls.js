@@ -22,5 +22,7 @@ function syncVideoPlayback() {
     });
 }
 
-// Llama a la función para sincronizar los videos
-syncVideoPlayback();
+window.addEventListener('DOMContentLoaded', () => {
+    syncVideoPlayback(); // Llamada inicial después de que la página ha cargado
+});
+

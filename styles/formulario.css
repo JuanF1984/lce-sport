@@ -6,11 +6,11 @@
     font-family: 'Akashi', sans-serif;
 }
 .gamer-form {
-    background-color: #1b1b1b;
+    background-color: #1D1D1B;
     border-radius: 10px;
     padding: 40px; /* Aumentamos el padding para más espacio */
     width: 550px;  /* Aumentamos un poco el ancho del formulario */
-    box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+    box-shadow: 0 0 15px #DADADA, 0 0 30px #DADADA;
 }
 
 .input-group {
@@ -23,9 +23,9 @@
     padding: 15px 20px; /* Más padding dentro de los inputs */
     background: transparent;
     border: none;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #DADADA;
     outline: none;
-    color: #fff;
+    color: #DADADA;
     font-size: 16px;
     border-radius: 5px; /* Opcional: bordes ligeramente redondeados */
     box-sizing: border-box;
@@ -40,7 +40,7 @@
     position: absolute;
     top: 15px;
     left: 20px;
-    color: #fff;
+    color: #DADADA;
     font-size: 16px;
     pointer-events: none;
     transition: 0.3s;
@@ -52,14 +52,14 @@
 .input-group textarea:not(:placeholder-shown) ~ label {
     top: -20px;
     left: 10px;
-    color: #0ff;
+    color: #FFAA00;
     font-size: 12px;
 }
 
 button {
     width: 100%;
     padding: 15px;
-    background-color: #0ff;
+    background-color: #DADADA;
     border: none;
     color: #000;
     font-size: 16px;
@@ -69,5 +69,6 @@ button {
 }
 
 button:hover {
-    background-color: #00f;
+    background-color: #312783;
+    color: #ffff;
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LC E-Sport</title>
+    
     <link rel="shortcut icon" href="assets/img/a.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -29,17 +30,19 @@
             <img src="assets/img/a.png" alt="">
         </div>
         <nav>
-            <input type="checkbox" id="menu-hamburguesa" class="menu-hamburguesa">
-            <label for="menu-hamburguesa" class="menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <ul class="menu">
-                <li>AGENDA</li>
-                <li>GALERÍA</li>
-                <li>CONTACTO</li>
-            </ul>
+            <div class="menu-container">
+                <input type="checkbox" id="menu-hamburguesa" class="menu-hamburguesa">
+                <label for="menu-hamburguesa" class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="menu">
+                    <li><a href="#agenda">AGENDA</a></li>
+                    <li><a href="#buscate">GALERÍA</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+            </div>
         </nav>
         <div class="redes">
             <ul>
@@ -71,12 +74,15 @@
                 <div class="video-container">
                     <div class="video-wrapper">
                         <video muted>
-                            <source src="https://res.cloudinary.com/dpvh3wlzv/video/upload/v1729690765/23_1_ks9w3i.mp4" type="video/mp4">
+                            <source src="https://res.cloudinary.com/dpvh3wlzv/video/upload/v1729690765/23_1_ks9w3i.mp4"
+                                type="video/mp4">
                         </video>
                     </div>
                     <div class="video-wrapper">
                         <video muted>
-                            <source src="https://res.cloudinary.com/dpvh3wlzv/video/upload/v1729689211/LOL_-_CARMEN_h48q8f.mp4" type="video/mp4">
+                            <source
+                                src="https://res.cloudinary.com/dpvh3wlzv/video/upload/v1729689211/LOL_-_CARMEN_h48q8f.mp4"
+                                type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -96,9 +102,7 @@
                 </div>
             </div>
 
-            <!-- <div class="logo-container">
-                <img src="assets/img/a.png" alt="Logo" class="logo" id="logo">
-            </div> -->
+           
             <div class="quienes-container">
                 <p class="info-quienes">
                     LC e-Sports somos 🕹️Organizadores de eventos gamer y de los deportes electrónicos en los Juegos
@@ -109,7 +113,7 @@
             <div class="line"></div>
         </section>
 
-        <section class="carrousel">
+        <section class="carrousel" id="agenda">
             <div class="carrousel-img">
                 <img src="assets/img/fechas/0.jpg" alt="">
                 <img src="assets/img/fechas/1.jpg" alt="">
@@ -129,7 +133,7 @@
         <div class="neon-line"></div>
         <section class="reloj">
             <div class="container-reloj">
-                <h1>Apertura Juegos Bonaerenses</h1>
+                <h3>Apertura Juegos Bonaerenses</h3>
                 <div class="clock" id="clock">
                     <div class="time" id="days">00</div>
                     <div class="label">Días</div>
@@ -143,7 +147,7 @@
             </div>
         </section>
         <div class="neon-line"></div>
-        <section class="buscate">
+        <section class="buscate" id="buscate">
             <div class="carrusel2">
                 <h3>Búscate</h3>
                 <div class="carrusel2-items">
@@ -195,7 +199,7 @@
 
         </section>
         <div class="neon-line"></div>
-        <h3>Contáctanos</h3>
+        <h3 id="contacto">Contáctanos</h3>
         <section class="formulario-mensaje">
             <form id="gamerForm" class="gamer-form">
                 <div class="input-group">

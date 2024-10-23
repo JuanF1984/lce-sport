@@ -20,7 +20,7 @@ const start = () => {
         } else if (carrusel2.scrollLeft <= 0) {
             step = step * -1;
         }
-    }, 10);
+    }, 150);
 };
 
 // Función para detener el carrusel

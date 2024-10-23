@@ -11,11 +11,19 @@ function updateClock() {
     const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-    // Mostrar los valores en el reloj
-    document.getElementById('days').textContent = days < 10 ? `0${days}` : days;
-    document.getElementById('hours').textContent = hours < 10 ? `0${hours}` : hours;
-    document.getElementById('minutes').textContent = minutes < 10 ? `0${minutes}` : minutes;
-    document.getElementById('seconds').textContent = seconds < 10 ? `0${seconds}` : seconds;
+    const daysElement = document.getElementById('days');
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+
+    if (daysElement && hoursElement) {
+        daysElement.textContent = days < 10 ? `0${days}` : days;
+        hoursElement.textContent = hours < 10 ? `0${hours}` : hours;
+        if (minutesElement && secondsElement) {
+            minutesElement.textContent = minutes < 10 ? `0${minutes}` : minutes;
+            secondsElement.textContent = seconds < 10 ? `0${seconds}` : seconds;
+        }
+    }
 
     // Si el tiempo se acaba
     if (timeRemaining < 0) {
@@ -27,5 +35,8 @@ function updateClock() {
 // Actualizar cada segundo
 const timer = setInterval(updateClock, 1000);
 
-// Llamada inicial
-updateClock();
+
+window.addEventListener('DOMContentLoaded', () => {
+    const timer = setInterval(updateClock, 1000);
+    updateClock(); // Llamada inicial después de que la página ha cargado
+});

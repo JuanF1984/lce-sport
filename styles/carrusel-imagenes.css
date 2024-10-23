@@ -15,7 +15,8 @@
 .carrusel2-item {
     min-width: 300px;
     max-width: 300px;
-    height: 300px;
+    height: 350px;
+    width: 350px;
     outline: 2px solid black;
     cursor: pointer;
 }
