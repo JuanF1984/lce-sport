@@ -1,0 +1,188 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Akashi';
+    src: url('../fonts/Akashi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background-color: black;
+}
+
+main {
+    background: linear-gradient(45deg, rgba(13, 13, 13, 0.9), rgba(255, 0, 255, 0.1)),
+        url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="500" viewBox="0 0 200 500"><defs><linearGradient id="grad1" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ff00ff;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23000000;stop-opacity:1" /></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="%23ff00ff"/></filter></defs><path d="M 100 50 L 100 150 L 50 200 L 150 300 L 50 400 L 100 450 L 100 500" stroke="url(%23grad1)" stroke-width="5" fill="none" filter="url(%23shadow)"/></svg>') no-repeat center center;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+h3{
+    color: #ffffff;
+    font-family: 'akashi';
+    font-size: 2em;
+    padding: 0.5em;
+}
+
+/* Estilo para el hero */
+.hero {
+    background: transparent;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrousel {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 15px;
+}
+
+.carrousel-img {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    border-radius: 15px;
+}
+
+.carrousel-img img {
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+.carrousel-img img:hover {
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
+
+/* Estilos para cuando se maximiza la imagen */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: flex;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 10%;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 10%;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.info-quienes {
+    font-size: 2em;
+    font-family: 'Akashi', sans-serif;
+    text-align: center;
+    padding: 1.5em 5em;
+    color: #ffffff;
+}
+
+.logo-area {
+    display: flex;
+    justify-content: center;
+    padding-top: 2.5em;
+}
+
+@media (max-width: 600px) {
+    .carrousel-img {
+        overflow: hidden;
+        /* Ocultar las imágenes que no se están mostrando */
+        width: 100%;
+        height: 60vh;
+    }
+
+    .carrousel-img img {
+        width: 100%;
+        /* Las imágenes se muestran de una en una en pantallas pequeñas */
+        opacity: 1;
+        /* Siempre visible en pantalla chica */
+        transition: none;
+        /* Sin transiciones por hover en pantalla pequeña */
+    }
+
+    .carrousel-img img:hover {
+        cursor: default;
+        /* Sin efectos de hover en pantallas pequeñas */
+    }
+
+    .info-quienes {
+        font-size: 1em;
+    }
+
+    main{
+        background-size: 250%; /* Ajusta el tamaño de la imagen SVG */
+        background-repeat: repeat-y;
+    }
+}

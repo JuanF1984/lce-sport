@@ -1,0 +1,6 @@
+agregar titulo a galería de imagenes de buscate
+poner fondo neon al logo en parte que explica*
+cambiar fotos de galería de buscate
+que se pueda ampliar foto en galeria de buscate*
+titulo para formulario
+cambiar fondo de header*

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Gamer</title>
+    <link rel="stylesheet" href="styles/formulario.css">
+</head>
+<body>
+    <form id="gamerForm" class="gamer-form">
+        <div class="input-group">
+            <input type="text" id="nombre" name="nombre">
+            <label for="nombre">Nombre y Apellido</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="localidad" name="localidad">
+            <label for="localidad">Localidad</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" name="email">
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <input type="tel" id="celular" name="celular">
+            <label for="celular">Celular</label>
+        </div>
+        <div class="input-group">
+            <textarea id="mensaje" name="mensaje"></textarea>
+            <label for="mensaje">Mensaje</label>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="scripts/firebase-config.js" type="module"></script>
+    <script src="scripts/formulario.js" type="module"></script>
+</body>
+</html>

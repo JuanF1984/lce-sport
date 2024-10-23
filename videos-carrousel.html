@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Videos Mejorado</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            position: relative;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+        }
+
+        .video-wrapper {
+            flex: 0 0 15%;
+            transition: all 0.5s ease;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 0 5px;
+        }
+
+        .video-wrapper.active {
+            flex: 0 0 25%;
+            filter: grayscale(0%);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 10px;
+        }
+
+        .controls button {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video>
+                    <source src="assets/video/Copy 36F6b2c7-6Cf0-484A-889E-4Ff19f7e016d.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-wrapper">
+                <video>
+                    <source src="assets/video/video_competencia.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-wrapper">
+                <video>
+                    <source src="assets/video/chacabuco evento primer parteeeeeeeee4.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-wrapper">
+                <video>
+                    <source src="assets/video/LOL - CARMEN.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="playPauseBtn">Pause</button>
+            <button id="muteBtn">Mute</button>
+        </div>
+    </div>
+
+    <script>
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        let currentVideoIndex = Math.floor(videoWrappers.length / 2);
+        let isPlaying = true;  // Indica si el video se está reproduciendo
+        let isMuted = true;  // Indica si el video está muteado
+        let isManualSelection = false; // Controla si el video fue seleccionado manualmente
+        let nextVideoTimeout = null;   // Almacena el timeout para el siguiente video
+
+        window.addEventListener('load', () => {
+            const centerVideo = videoWrappers[currentVideoIndex].querySelector('video');
+            centerVideo.muted = true;
+            videoWrappers[currentVideoIndex].classList.add('active');
+            muteBtn.textContent = 'Unmute';
+
+            centerVideo.play().then(() => {
+                centerVideo.addEventListener('ended', handleVideoEnd);
+            }).catch(error => {
+                console.error("Reproducción automática fallida:", error);
+            });
+        });
+
+        // Función para reproducir el siguiente video automáticamente
+        function playNextVideo() {
+            if (!isPlaying) return;
+
+            // Pausa el video actual y quita la clase 'active'
+            const currentVideo = videoWrappers[currentVideoIndex].querySelector('video');
+            currentVideo.pause();
+            videoWrappers[currentVideoIndex].classList.remove('active');
+
+            // Avanza al siguiente video, reiniciando si se llega al último
+            currentVideoIndex = (currentVideoIndex + 1) % videoWrappers.length;
+
+            // Reproducir el siguiente video
+            const nextWrapper = videoWrappers[currentVideoIndex];
+            nextWrapper.classList.add('active');
+            const nextVideo = nextWrapper.querySelector('video');
+
+            nextVideo.currentTime = 0;  // Reinicia el video
+            nextVideo.play();
+
+            // Asegurar que los eventos se manejen adecuadamente
+            nextVideo.removeEventListener('ended', handleVideoEnd);
+            nextVideo.addEventListener('ended', handleVideoEnd);
+        }
+
+        // Función para manejar el fin del video
+        function handleVideoEnd() {
+            if (!isManualSelection) {
+                playNextVideo(); // Continúa con el siguiente video automáticamente
+            } else {
+                // Video playback ended after manual selection
+                isManualSelection = false; // Restablecer manual selection flag
+                isPlaying = true; // Resumir reproducción automática flag (opcional)
+            }
+        }
+
+        // Función para seleccionar un video manualmente
+        function selectVideo(index) {
+            isPlaying = false;
+            isManualSelection = true;
+
+            // Si hay un timeout para la reproducción automática, cancelarlo
+            clearTimeout(nextVideoTimeout);
+
+            // Pausa el video actual y quita la clase 'active'
+            const currentVideo = videoWrappers[currentVideoIndex].querySelector('video');
+            currentVideo.pause();
+            videoWrappers[currentVideoIndex].classList.remove('active');
+
+            // Actualiza el índice del video seleccionado manualmente
+            currentVideoIndex = index;
+
+            // Reproducir el video seleccionado
+            const selectedWrapper = videoWrappers[currentVideoIndex];
+            selectedWrapper.classList.add('active');
+            const selectedVideo = selectedWrapper.querySelector('video');
+
+            selectedVideo.currentTime = 0;  // Comienza desde el inicio
+            selectedVideo.play();
+
+            // Reestablecer el evento de fin del video para la reproducción manual
+            selectedVideo.removeEventListener('ended', handleVideoEnd);
+            selectedVideo.addEventListener('ended', () => {
+                isManualSelection = false;
+                isPlaying = true;
+                playNextVideo();  // Reanuda la reproducción automática desde el siguiente video
+            });
+        }
+
+        // Agregar un evento de clic a cada video para permitir la selección manual
+        videoWrappers.forEach((wrapper, index) => {
+            wrapper.addEventListener('click', () => {
+                selectVideo(index);  // Seleccionar el video clicado
+            });
+        });
+
+        // Función para alternar entre reproducir y pausar el video
+        function togglePlayPause() {
+            isPlaying = !isPlaying;
+            const currentVideo = videoWrappers[currentVideoIndex].querySelector('video');
+            if (isPlaying) {
+                currentVideo.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                currentVideo.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        }
+
+        // Función para alternar entre silenciar y activar el sonido
+        function toggleMute() {
+            isMuted = !isMuted;
+            videoWrappers.forEach(wrapper => {
+                wrapper.querySelector('video').muted = isMuted;
+            });
+            muteBtn.textContent = isMuted ? 'Unmute' : 'Mute';
+        }
+
+        // Asignar eventos a los botones de play/pause y mute
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        muteBtn.addEventListener('click', toggleMute);
+
+    </script>
+</body>
+
+</html>

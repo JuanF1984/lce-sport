@@ -1,0 +1,44 @@
+
+
+.line {
+    width: 100%;
+    /* Ocupa el 100% del ancho de la pantalla */
+    height: 5px;
+    /* Ajusta el grosor de la línea */
+    background: linear-gradient(to right, blue, black);
+    /* Gradiente azul y negro */
+    background-size: 200% 100%;
+    /* Duplica el tamaño del fondo para el movimiento */
+    margin: 20px 0;
+    /* Espaciado arriba y abajo de la línea */
+    opacity: 1;
+    /* Comienza invisible */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    animation: neonGlow 3s infinite alternate, moveBackground 3s linear infinite;
+    /* Aplica la animación del brillo y el movimiento de fondo */
+}
+
+
+@keyframes neonGlow {
+    0% {
+        filter: brightness(0.8);
+        /* Brillo bajo */
+    }
+
+    100% {
+        filter: brightness(1.2);
+        /* Brillo alto, pero muy sutil */
+    }
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0;
+        /* Comienza en la posición inicial */
+    }
+
+    100% {
+        background-position: 100% 0;
+        /* Se mueve al final */
+    }
+}

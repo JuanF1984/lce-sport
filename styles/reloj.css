@@ -1,0 +1,73 @@
+/* @font-face {
+    font-family: 'Akashi';
+    src: url('../fonts/Akashi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+
+.container-reloj {
+    font-family: 'Akashi', sans-serif;
+    text-align: center;
+    /* margin-top: 15em; */
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00ffcc;
+    /* text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; */
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.time {
+    color: #00ffcc;
+    font-size: 4rem;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff;
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.time:hover {
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    border-color: #ff00ff;
+}
+
+.label {
+    font-size: 1.5rem;
+    color: #00ffcc;
+    /* text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; */
+}
+
+@media (max-width: 768px) {
+    .clock {
+        gap: 10px;
+    }
+    
+    .time {
+        font-size: 2em;
+    }
+
+    #minutes{
+        display: none;
+    }
+
+    #minutes~div{
+        display: none;
+    }
+
+
+}

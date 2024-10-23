@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LC E-Sport</title>
+    <link rel="shortcut icon" href="assets/img/a.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/carrousel.css">
+    <link rel="stylesheet" href="styles/logo-efecto.css">
+    <link rel="stylesheet" href="styles/carrusel-imagenes.css">
+    <link rel="stylesheet" href="styles/reloj.css">
+    <link rel="stylesheet" href="styles/formulario.css">
+    <link rel="stylesheet" href="styles/inicio.css">
+    <script src="https://kit.fontawesome.com/7973797be6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="logo-container">
+            <img src="assets/img/a.png" alt="Logo de LC E-Sport" class="logo">
+            <div class="neon-border"></div>
+        </div>
+    </div>
+    <header id="header">
+        <div class="header_superior">
+            <img src="assets/img/a.png" alt="">
+        </div>
+        <nav>
+            <input type="checkbox" id="menu-hamburguesa" class="menu-hamburguesa">
+            <label for="menu-hamburguesa" class="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="menu">
+                <li>AGENDA</li>
+                <li>GALERÍA</li>
+                <li>CONTACTO</li>
+            </ul>
+        </nav>
+        <div class="redes">
+            <ul>
+                <li>
+                    <p>Encontranos en:</p>
+                </li>
+                <li><a href="https://www.instagram.com/lcesports/" target="_blank"><i
+                            class="fa-brands fa-square-instagram"></i></a></li>
+                <li><a href="https://www.twitch.tv/lc_esports?fbclid=IwY2xjawFQK9hleHRuA2FlbQIxMAABHfxpL5En2ZA4zjWnz5tfyjI3hcTMf_I9US_DYZmPTCuPMSTVB3LDiTyfMw_aem_85z93WneKEMjAhc-GyUDaA"
+                        target="_blank"><i class="fa-brands fa-twitch"></i></a>
+                </li>
+                <li><a href="https://www.facebook.com/profile.php?id=100064599417242" target="_blank"><i
+                            class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.tiktok.com/@Lc.esports?fbclid=IwY2xjawFzaxFleHRuA2FlbQIxMAABHYWYlYMyMt_OY31NSZH6hDjwdzIo4T0AH08fwn0a_trkP2d9X8kgF-ve_g_aem_eBW1x3gYjJFuLWtjfqIB1w"
+                        target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </li>
+                <li><a href="https://discord.com/channels/677928250801913867/747705285757501442" target="_blank"><i
+                            class="fa-brands fa-discord"></i></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="neon-line"></div>
+    <main id="main">
+        <section class="hero">
+            <div class="container">
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video muted>
+                            <source src="https://asset.cloudinary.com/dpvh3wlzv/6fd5c47ac4884b2967aac72adbb0dba8" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-wrapper">
+                        <video muted>
+                            <source src="https://asset.cloudinary.com/dpvh3wlzv/bc0cea22fb41628bf8db85fb120c1390" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="playPauseBtn">Pause</button>
+                    <button id="muteBtn">Mute</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="quienes-somos">
+            <div class="line"></div>
+            <div class="logo-area">
+                <div class="logo-container">
+                    <img src="assets/img/a.png" alt="Logo de LC E-Sport" class="logo">
+                    <div class="neon-border"></div>
+                </div>
+            </div>
+
+            <!-- <div class="logo-container">
+                <img src="assets/img/a.png" alt="Logo" class="logo" id="logo">
+            </div> -->
+            <div class="quienes-container">
+                <p class="info-quienes">
+                    LC e-Sports somos 🕹️Organizadores de eventos gamer y de los deportes electrónicos en los Juegos
+                    Bonaerenses 2024
+                    Hacemos actividades desde ......
+                </p>
+            </div>
+            <div class="line"></div>
+        </section>
+
+        <section class="carrousel">
+            <div class="carrousel-img">
+                <img src="assets/img/fechas/0.jpg" alt="">
+                <img src="assets/img/fechas/1.jpg" alt="">
+                <img src="assets/img/fechas/2.jpg" alt="">
+                <img src="assets/img/fechas/3.jpg" alt="">
+
+            </div>
+
+            <div id="modal" class="modal">
+                <span class="close">&times;</span>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+                <img class="modal-content" id="modal-image">
+            </div>
+
+        </section>
+        <div class="neon-line"></div>
+        <section class="reloj">
+            <div class="container-reloj">
+                <h1>Apertura Juegos Bonaerenses</h1>
+                <div class="clock" id="clock">
+                    <div class="time" id="days">00</div>
+                    <div class="label">Días</div>
+                    <div class="time" id="hours">00</div>
+                    <div class="label">Horas</div>
+                    <div class="time" id="minutes">00</div>
+                    <div class="label">Minutos</div>
+                    <div class="time" id="seconds">00</div>
+                    <div class="label">Segundos</div>
+                </div>
+            </div>
+        </section>
+        <div class="neon-line"></div>
+        <section class="buscate">
+            <div class="carrusel2">
+                <h3>Búscate</h3>
+                <div class="carrusel2-items">
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/carmen.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/sag2.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/colon.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto3.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto5.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto2.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto1.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto3.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto4.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/sag.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/carmen.jfif" alt="" />
+                    </div>
+                    <div class="carrusel2-item">
+                        <img src="assets/img/carrousel/foto1.jfif" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal">
+                <span class="close" id="close">&times;</span>
+                <a class="prev" id="prev">&#10094;</a>
+                <a class="next" id="next">&#10095;</a>
+                <img class="modal-content" id="modal2-image">
+            </div>
+
+        </section>
+        <div class="neon-line"></div>
+        <h3>Contáctanos</h3>
+        <section class="formulario-mensaje">
+            <form id="gamerForm" class="gamer-form">
+                <div class="input-group">
+                    <input type="text" id="nombre" name="nombre">
+                    <label for="nombre">Nombre y Apellido</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="localidad" name="localidad">
+                    <label for="localidad">Localidad</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="celular" name="celular">
+                    <label for="celular">Celular</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="mensaje" name="mensaje"></textarea>
+                    <label for="mensaje">Mensaje</label>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+
+    </footer>
+
+    <script src="scripts/maximizar.js"></script>
+    <script src="scripts/carrousel.js"></script>
+    <script src="scripts/controls.js"></script>
+    <script src="scripts/reloj.js"></script>
+    <script src="scripts/firebase-config.js" type="module"></script>
+    <script src="scripts/formulario.js" type="module"></script>
+    <script src="scripts/inicio.js"></script>
+    <script src="scripts/carrusel-imagenes.js"></script>
+</body>
+
+</html>
