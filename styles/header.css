@@ -1,19 +1,18 @@
 header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    padding: 1em;
     background: linear-gradient(45deg, rgba(13, 13, 13, 0.9), rgba(255, 0, 255, 0.1));
+    padding: 2em;
 }
 
 .header_superior {
-    /* background-color: #000000; */
-    grid-column: 1;
-    /* width: 30%; */
+    flex: 1 1 50%;
 }
 
 .header_superior img {
-    height: 6em;
+    height: 7em;
     padding: 1em;
 }
 
@@ -60,12 +59,13 @@ header {
 
 /* Estilos de navegador */
 nav {
+    flex: 1 1 100%;
     color: #ffff;
     display: flex;
     justify-content: center;
     text-align: center;
-    grid-column: 2;
     justify-self: center;
+    /* order: 1; */
 }
 
 nav ul {
@@ -77,16 +77,17 @@ nav ul {
 
 nav ul li {
     padding: .6em;
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'Akashi', sans-serif;
+
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
     color: #ffffff;
 }
 
-.menu li:hover{
+.menu li:hover {
     transform: scale(1.3);
     filter: drop-shadow(10px 10px 5px rgba(255, 255, 255, 0.5));
 }
@@ -94,8 +95,9 @@ nav ul li {
 
 /* Redes sociales */
 .redes {
-    grid-column: 3;
-    justify-self: flex-end;
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .redes ul {
@@ -137,22 +139,27 @@ nav ul li {
     margin: 5px 0;
 }
 
+/* Clase para cuando el menu hamburguesa se expande */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
-    header {
-        grid-template-columns: 1fr;
-        /* Cambia a una columna */
-        text-align: center;
+
+
+    nav {
+        flex: 1 1 50%;
+
+        justify-content: flex-end;
+        order: -1;
     }
 
-    .header_superior,
-    nav,
-    .redes {
-        grid-column: 1 / 2;
-        /* Todo ocupa una única columna */
-        justify-self: center;
-        /* Centra todos los elementos */
-    }
+
+
 
     nav ul {
         flex-direction: column;
@@ -169,50 +176,87 @@ nav ul li {
         text-align: center;
     }
 
+    .header_superior {
+        order: -1;
+    }
+
     .header_superior img {
         height: 7em;
         /* Ajusta el tamaño del logo */
     }
 
-    .menu-container{
+    .menu-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        position: relative;
-        width: 100dvw;
+        position: static;
+        /* width: 100dvw; */
     }
 
-    /* menu hamburguesa */
-    
+
     .menu {
         display: none;
-        width: 75%;
-        top: 15.3em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-45deg, #00055B, #1D1D1B);
+        /* Mantiene el estilo del header */
+        z-index: 1000;
+        /* Asegura que esté por encima de todo */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+
     }
+
 
     .menu li {
-        display: block;
-        padding: 10px;
+        margin: 15px 0;
+        font-size: 1.8em;
+        /* Hacemos los items más grandes */
     }
 
-    .menu-btn{
+    .menu-btn {
         display: block;
+        position: relative;
+        z-index: 1001;
     }
-    
+
+    .menu-btn span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #ffffff;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        /* Agregamos transición para la animación */
+    }
+
     .menu-hamburguesa:checked~.menu-btn {
-        position: absolute;
-        top: -10px;
-        right: 15%;
+        position: fixed;
+        top: 10%;
+        right: 20%;
     }
+
     .menu-hamburguesa:checked~.menu {
         display: flex;
+        position: fixed;
+        /* Fijamos el menú a la ventana */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        /* Ocupa todo el ancho de la ventana */
+        height: 100vh;
+        /* Ocupa todo el alto de la ventana */
     }
 
     /* convierte las líneas del menú en una cruz */
     .menu-hamburguesa:checked~.menu-btn span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-        width: 25px;
+        transform: rotate(45deg) translate(5px, 5px);
     }
 
     .menu-hamburguesa:checked~.menu-btn span:nth-child(2) {
@@ -220,22 +264,22 @@ nav ul li {
     }
 
     .menu-hamburguesa:checked~.menu-btn span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-        width: 25px;
+        transform: rotate(-45deg) translate(7px, -6px);
     }
-    
-    
-    /* estilo del div redes en responsivo */
-    .redes {
-        margin-top: 0.8em;
-        background-color: #ffffff25;
-        border-radius: 10px;
-    }
+
+
+
 
     .redes ul li:first-child {
         display: none;
     }
 
+
+
+    .redes {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
 
 
 }

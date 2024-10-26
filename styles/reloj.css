@@ -12,6 +12,8 @@
 .container-reloj h3 {
     font-size: 2.5rem;
     margin-bottom: 40px;
+    margin-left: 1em;
+    margin-right: 1em;
     color: #DADADA;
     text-shadow: 0 0 10px #312783, 0 0 20px #312783, 0 0 40px #312783;
     padding: 0;

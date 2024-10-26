@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
     setTimeout(function () {
         document.getElementById('loadingScreen').style.display = 'none';
-        document.getElementById('header').style.display = 'grid';
+        document.getElementById('header').style.display = 'flex';
         document.getElementById('main').style.display = 'block';
         document.getElementById('footer').style.display = 'block';
         let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;
